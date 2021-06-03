@@ -48,6 +48,7 @@ function appMenu() {
       teamMembers.push(manager);
       idArray.push(answers.managerId);
       createTeam();
+      //need to check managername - should probably be Name.
     });
   }
 
@@ -80,6 +81,34 @@ function appMenu() {
 
   function addEngineer() {
     inquirer.prompt([
+
+        {
+
+            //Engineer questions in inquirer
+            type: "input",
+            name: "Name",
+            message: "Please enter the name of this engineer employee.",
+          },
+          {
+            type: "input",
+            name: "Id",
+            message: "Please enter the ID of this engineer employee."
+          },
+          {
+            type: "input",
+            name: "Email",
+            message: "Please enter the email address of this engineer employee"
+          },
+          {
+            type: "input",
+            name: "OfficeNumber",
+            message: "Please enter the office number of this engineer employee."
+          },
+        
+
+
+
+
       //
       // YOUR CODE HERE
       // CREATE OBJECTS OF QUESTIONS FOR ENGINEER
