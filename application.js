@@ -48,7 +48,7 @@ function appMenu() {
       teamMembers.push(manager);
       idArray.push(answers.managerId);
       createTeam();
-      //need to check managername - should probably be Name.
+      
     });
   }
 
@@ -86,34 +86,35 @@ function appMenu() {
 
             //Engineer questions in inquirer
             type: "input",
-            name: "Name",
+            name: "engineerName",
             message: "Please enter the name of this engineer employee.",
           },
           {
             type: "input",
-            name: "Id",
+            name: "engineerId",
             message: "Please enter the ID of this engineer employee."
           },
           {
             type: "input",
-            name: "Email",
+            name: "engineerEmail",
             message: "Please enter the email address of this engineer employee"
           },
           {
             type: "input",
-            name: "OfficeNumber",
-            message: "Please enter the office number of this engineer employee."
+            name: "engineerGithub",
+            message: "Please enter the Github account of this engineer employee."
           },
         
 
 
 
 
-      //
-      // YOUR CODE HERE
-      // CREATE OBJECTS OF QUESTIONS FOR ENGINEER
-      //
-    ]).then(answers => {
+ 
+    ]).then(answers => { 
+        const engineer = new Engineer (answers.engineerName, answers.engineerId, answers.engineerEmail, answers.engineerGithub);
+        teamMembers.push(engineer);
+        idArray.push(answers.engineerId);
+        
       //
       // YOUR CODE HERE
       // 1. CREATE A VARIABLE TO STORE THE ENGINEER OBJECT INSTANTIATED WITH THE ENGINEER CLASS, PASSING ANSWERS PROPERTIES AS INPUT AURGUMENTS 
@@ -128,11 +129,40 @@ function appMenu() {
 
   function addIntern() {
     inquirer.prompt([
+
+
+
+      {
+
+        //Engineer questions in inquirer
+        type: "input",
+        name: "internName",
+        message: "Please enter the name of this intern.",
+      },
+      {
+        type: "input",
+        name: "internId",
+        message: "Please enter the ID of this intern."
+      },
+      {
+        type: "input",
+        name: "internEmail",
+        message: "Please enter the email address of this intern."
+      },
+      {
+        type: "input",
+        name: "internSchool",
+        message: "Please enter the school of this intern."
+      },
+
       //
       // YOUR CODE HERE
       // CREATE OBJECTS OF QUESTIONS FOR ENGINEER
       //
     ]).then(answers => {
+      const intern = new Intern (answers.internName, answers.internId, answers.internEmail, answers.internSchool);
+      teamMembers.push(intern);
+      idArray.push(answers.internId);
       //
       // YOUR CODE HERE
       // 1. CREATE A VARIABLE TO STORE THE INTERN OBJECT INSTANTIATED WITH THE INTERN CLASS, PASSING ANSWERS PROPERTIES AS INPUT AURGUMENTS 
